@@ -8,12 +8,15 @@ const Modal = ({ closeHandler }) => {
   }
 
   return (
-    <div className="">
-      <div className="border border-green-500 shadow-lg shadow-blue-500/40 hover:shadow-blue-500/80 flex flex-col h-[380px] w-[380px] text-center p-5 bg-black m-5">
-        <h1 className="text-base font-extrabold text-green-600 ">Feedback</h1>
+    <div className="fixed inset-0 absolute left-[35%] top-[10%] z-50">
+      <div className="fixed inset-0 bg-black opacity-60"></div>
+      <div className="border border-green-500 shadow-lg shadow-green-500/40 hover:shadow-green-500/80 flex flex-col h-[25rem] w-[24rem] text-center p-5 bg-black m-5 relative">
+        <h1 className="text-base font-extrabold text-green-600 mb-5">
+          Feedback
+        </h1>
         <RxCross2
           onClick={closeHandlerModal}
-          className="text-white ml-[20rem] cursor-pointer"
+          className="text-white ml-[20rem] cursor-pointer absolute"
         />
 
         <input
@@ -31,15 +34,15 @@ const Modal = ({ closeHandler }) => {
           type="text"
           placeholder="Subject"
         />
-        <input
-          className="h-20 text-sm border text-black border-green-500 rounded-lg pl-4 pb-8"
+        <textarea
+          className="h-20 text-sm border text-black border-green-500 rounded-lg pl-4 pt-1"
           type="text"
           placeholder="Describtion"
         />
 
-        <div className="h-[10%] w-[42%] bg-green-600 rounded-lg text-white pl-1 mt-7 ml-[6rem]">
+        <button className="bg-green-600 rounded-lg text-white w-[40%] p-[6px] m-auto">
           Submit Feedback
-        </div>
+        </button>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { BsHeadphones } from "react-icons/bs";
 import SearchBar from './SearchBar';
 import Modal from './Modal';
 
-const NavBar = () => {
+const NavBar = ({data}) => {
   const [showModal, setShowModal] = useState(false);
 
 
@@ -22,7 +22,7 @@ const NavBar = () => {
         <p className="text-white ml-2 text-xl pt-2 font-semibold">Q tify</p>
       </div>
 
-      <SearchBar />
+      <SearchBar data={data} />
 
       <div className="flex flex-col">
         <div

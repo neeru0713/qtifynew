@@ -1,6 +1,7 @@
 import React from 'react'
 import albumpic from './album.png'
 import { useState } from 'react';
+import { Carousel } from './Carousel';
 
 const MainSection = ({ data, name,showTabs,showButton }) => {
 const [isCollapse, setIsCollapse] = useState(true);
@@ -42,19 +43,20 @@ const [gridHeight, setGridHeight] = useState('10rem');
           </div>
         ) : null}
       </div>
-      <div
-        className="grid grid-cols-7 gap-4 overflow-y-scroll"
-        style={{ height: gridHeight }}
-      >
-        {data.map((card, index) => (
-          <div
-            key={index}
-            className="bg-white p-4 shadow-md rounded-md h-[85%] w-[80%]"
-          >
-            <img src={albumpic} className="h-[100%] w-[100%]" />
-          </div>
-        ))}
-      </div>
+      {isCollapse ? (
+        <Carousel cards={ data } />
+      ) : (
+        <div className="grid grid-cols-7 gap-4 h-[20rem] overflow-y-scroll">
+          {data.map((card, index) => (
+            <div
+              key={index}
+              className="bg-white p-4 shadow-md rounded-md h-[85%] w-[80%]"
+            >
+              <img src={albumpic} className="h-[100%] w-[100%]" />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

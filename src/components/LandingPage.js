@@ -25,7 +25,7 @@ const LandingPage = () => {
   return (
     <div className="bg-black h-[100%] w-[100%]">
       <NavBar
-        
+        data = {data}
       />
           <Header />
           <MainSection
