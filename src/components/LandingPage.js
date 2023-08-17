@@ -5,7 +5,7 @@ import MainSection from './MainSection';
 import Footer from './Footer';
 import { useEffect, useState } from "react";
 
-const LandingPage = () => {
+export const LandingPage = () => {
       const [data, setData] = useState([]);
 
       useEffect(() => {
@@ -23,7 +23,7 @@ const LandingPage = () => {
 
     
   return (
-    <div className="bg-black h-[100%] w-[100%]">
+    <div className="h-auto w-[100%]">
       <NavBar
         data = {data}
       />
@@ -54,4 +54,3 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;

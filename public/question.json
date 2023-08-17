@@ -1,0 +1,13 @@
+{
+    "questions":[
+        {
+            "q":"Is quitfy free to use?", 
+            "a":"Yes! It is 100% free, and has 0% ads!"
+        },
+
+         {
+           "q": "Can I download and listen to songs offline?",
+           "a": "Yes! You can download and listen to songs offline!"
+         }
+    ]
+}

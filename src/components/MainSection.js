@@ -2,7 +2,7 @@ import React from 'react'
 import albumpic from './album.png'
 import { useState } from 'react';
 import { Carousel } from './Carousel';
-
+import { Link } from "react-router-dom";
 const MainSection = ({ data, name,showTabs,showButton }) => {
 const [isCollapse, setIsCollapse] = useState(true);
 const [gridHeight, setGridHeight] = useState('10rem');
@@ -26,7 +26,7 @@ const [gridHeight, setGridHeight] = useState('10rem');
           {showButton === true ? (
             <button
               onClick={isCollapseHandler}
-              className="text-lime-500 font-semibold"
+              className="text-green-800 font-semibold"
             >
               {isCollapse ? "Show all" : "Collapse"}
             </button>
@@ -34,7 +34,7 @@ const [gridHeight, setGridHeight] = useState('10rem');
         </div>
 
         {showTabs === true ? (
-          <div className="flex">
+          <div className="flex text-white font-bold text-xs w-[20%] justify-between">
             <p>All</p>
             <p>Rock</p>
             <p>Pop</p>
@@ -44,16 +44,18 @@ const [gridHeight, setGridHeight] = useState('10rem');
         ) : null}
       </div>
       {isCollapse ? (
-        <Carousel cards={ data } />
+        <Carousel cards={data} />
       ) : (
-        <div className="grid grid-cols-7 gap-4 h-[20rem] overflow-y-scroll">
+        <div className="grid grid-cols-7 h-[20rem] overflow-y-scroll">
           {data.map((card, index) => (
-            <div
-              key={index}
-              className="bg-white p-4 shadow-md rounded-md h-[85%] w-[80%]"
-            >
-              <img src={albumpic} className="h-[100%] w-[100%]" />
-            </div>
+            <Link key={index} to="/album" className="hover:cursor-pointer">
+              <div
+                key={index}
+                className="bg-white p-4 shadow-md rounded-md h-[85%] w-[80%]"
+              >
+                <img src={albumpic} className="h-[100%] w-[100%]" />
+              </div>
+            </Link>
           ))}
         </div>
       )}

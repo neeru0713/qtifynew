@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import albumpic from './album.png'
+import { Link } from "react-router-dom";
 export const Carousel = ({ cards }) => {
     
     const [startIndex, setStartIndex] = useState(0);
@@ -24,20 +25,26 @@ export const Carousel = ({ cards }) => {
   };
 
   return (
-    <div className="carousel flex">
-      <button onClick={handleLeftClick} className="arrow left text-[50px]">
+      <div className="c
+    arousel flex items-center">
+      <button onClick={handleLeftClick} className="arrow left text-[50px] mr-8">
         &#8249;
       </button>
 
-      <div className="grid grid-cols-7 gap-4 ">
+      <div className="grid grid-cols-7 ">
         {cards.slice(startIndex, endIndex + 1).map((card, index) => (
-          <div
+          <Link
             key={index}
-            className="bg-white p-4 shadow-md rounded-md h-[85%] w-[80%] text-black"
+            to="/album"
+            className="hover:cursor-pointer"
+          >
+            <div
+              key={index}
+              className="bg-white p-4 shadow-md rounded-md h-[85%] w-[80%] text-black"
             >
-                
-            <img src={albumpic} className="h-[100%] w-[100%]" />
-          </div>
+              <img src={albumpic} className="h-[100%] w-[100%]" />
+            </div>
+          </Link>
         ))}
       </div>
 
