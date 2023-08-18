@@ -25,8 +25,10 @@ export const Carousel = ({ cards }) => {
   };
 
   return (
-      <div className="c
-    arousel flex items-center">
+    <div
+      className="c
+    arousel flex items-center"
+    >
       <button onClick={handleLeftClick} className="arrow left text-[50px] mr-8">
         &#8249;
       </button>
@@ -35,7 +37,8 @@ export const Carousel = ({ cards }) => {
         {cards.slice(startIndex, endIndex + 1).map((card, index) => (
           <Link
             key={index}
-            to="/album"
+            to={`/album/${card.name}`}
+            state={cards[index]}
             className="hover:cursor-pointer"
           >
             <div

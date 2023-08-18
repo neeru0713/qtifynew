@@ -17,6 +17,8 @@ const [gridHeight, setGridHeight] = useState('10rem');
       setIsCollapse(!isCollapse);
   }
 
+
+
   return (
     <div className="bg-black w-[100%] border-b-2 border-lime-900 text-white">
       <div className="flex flex-col p-2">
@@ -46,9 +48,9 @@ const [gridHeight, setGridHeight] = useState('10rem');
       {isCollapse ? (
         <Carousel cards={data} />
       ) : (
-        <div className="grid grid-cols-7 h-[20rem] overflow-y-scroll">
+        <div className="grid grid-cols-7 gap-4 h-[20rem] overflow-y-scroll">
           {data.map((card, index) => (
-            <Link key={index} to="/album" className="hover:cursor-pointer">
+            <Link key={index} to={`/album/${card.name}`} state={data[index]} className="hover:cursor-pointer">
               <div
                 key={index}
                 className="bg-white p-4 shadow-md rounded-md h-[85%] w-[80%]"
