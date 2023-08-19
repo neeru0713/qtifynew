@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import albumpic from './album.png'
 import { Link } from "react-router-dom";
+import Card from './Card'
 export const Carousel = ({ cards }) => {
     
     const [startIndex, setStartIndex] = useState(0);
@@ -35,19 +36,7 @@ export const Carousel = ({ cards }) => {
 
       <div className="grid grid-cols-7 ">
         {cards.slice(startIndex, endIndex + 1).map((card, index) => (
-          <Link
-            key={index}
-            to={`/album/${card.name}`}
-            state={cards[index]}
-            className="hover:cursor-pointer"
-          >
-            <div
-              key={index}
-              className="bg-white p-4 shadow-md rounded-md h-[85%] w-[80%] text-black"
-            >
-              <img src={albumpic} className="h-[100%] w-[100%]" />
-            </div>
-          </Link>
+          <Card card={card} index={index} data={cards} />
         ))}
       </div>
 

@@ -1,8 +1,9 @@
 import React from 'react'
-import albumpic from './album.png'
+
 import { useState } from 'react';
 import { Carousel } from './Carousel';
-import { Link } from "react-router-dom";
+import Card from './Card'
+
 const MainSection = ({ data, name,showTabs,showButton }) => {
 const [isCollapse, setIsCollapse] = useState(true);
 const [gridHeight, setGridHeight] = useState('10rem');
@@ -50,14 +51,10 @@ const [gridHeight, setGridHeight] = useState('10rem');
       ) : (
         <div className="grid grid-cols-7 gap-4 h-[20rem] overflow-y-scroll">
           {data.map((card, index) => (
-            <Link key={index} to={`/album/${card.name}`} state={data[index]} className="hover:cursor-pointer">
-              <div
-                key={index}
-                className="bg-white p-4 shadow-md rounded-md h-[85%] w-[80%]"
-              >
-                <img src={albumpic} className="h-[100%] w-[100%]" />
-              </div>
-            </Link>
+            <Card card={card}
+              index={index}
+              data={data}
+            /> 
           ))}
         </div>
       )}
