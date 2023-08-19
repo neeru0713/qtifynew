@@ -9,8 +9,8 @@ export const LandingPage = () => {
       const [data, setData] = useState([]);
 
       useEffect(() => {
-        const apiUrl =
-          "https://main--vocal-crostata-93f231.netlify.app/data.json";
+        const apiUrl ="https://main--vocal-crostata-93f231.netlify.app/data.json";
+        // const apiUrl = "http://localhost:3000/data.json";
         fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => {
