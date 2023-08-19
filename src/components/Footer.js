@@ -6,7 +6,8 @@ const Footer = () => {
   const [questions, setQuestions] = useState([]); // Changed variable name to 'questions'
 
   useEffect(() => {
-    const apiUrl = "http://localhost:3000/question.json";
+    const apiUrl =
+      "https://main--vocal-crostata-93f231.netlify.app/question.json";
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
